@@ -237,10 +237,10 @@ document.addEventListener("DOMContentLoaded", () => {
   setupWriterToggle();
 
   if (document.getElementById("home-counter")) {
-    handleSmartCounter("quran_home_visits_2026", "home-counter");
+    handleSmartCounter("Imam-Islamic-Center-in-Al-Saff-Al-Balad", "home-counter");
   }
 
   if (document.getElementById("contact-counter")) {
-    handleSmartCounter("quran_contact_visits_2026", "contact-counter");
+    handleSmartCounter("Imam-Islamic-Center-in-Al-Saff-Al-Balad", "contact-counter");
   }
 });
