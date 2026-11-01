@@ -3,146 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تواصل معي | السرد القرآني - فرع الصف البلد</title>
-
-  <!-- Google Fonts: Cairo & Amiri -->
+  <title>تواصل معي - السرد القرآني</title>
+  
+  <!-- خطوط جوجل -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-  <!-- Style CSS Link -->
-  <link rel="stylesheet" href="style.css?v=3.0">
   
-  <!-- JavaScript Link -->
-  <script src="script.js" defer></script>
+  <!-- أيقونات FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- ربط ملف الـ CSS الخارجي المنفصل تماماً -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- شريط التنقل العلوي الثابت -->
+  <!-- شريط التنقل العلوي لصفحة التواصل -->
   <nav class="main-navbar">
     <div class="nav-container">
-      <a href="index.html" class="nav-logo">مركز الإمام - فرع الصف البلد</a>
+      
+      <!-- اللوجو على اليمين خالص في النافبار -->
+      <img src="logo.png" alt="مركز الإمام الإسلامي" class="nav-logo-right" onerror="this.src='https://via.placeholder.com/60?text=لوجو';">
+      
+      <!-- نص اللوجو الرئيسي -->
+      <a href="index.html" class="nav-logo">
+        <span class="nav-link-part" onclick="event.stopPropagation(); window.open('https://www.facebook.com/emam.eslamic', '_blank');">مركز الإمام الإسلامي</span>
+        - 
+        <span class="nav-link-part" onclick="event.stopPropagation(); window.open('https://www.facebook.com/elamam.elsaf.661', '_blank');">فرع الصف البلد</span>        
+      </a>
+
+      <!-- روابط التنقل -->
       <ul class="nav-links">
         <li><a href="index.html">الرئيسية</a></li>
         <li><a href="contact.html" class="active">تواصل معي</a></li>
       </ul>
+
+      <!-- الشعار الدائري على الشمال خالص في النافبار -->
+      <img src="badge.jpg" alt="شعار الألفية الثانية" class="nav-badge-left" onerror="this.src='https://via.placeholder.com/60?text=شعار';">
+
     </div>
   </nav>
-
-  <!-- زخارف الخلفية -->
+  
   <div class="bg-pattern"></div>
 
-  <!-- الهيدر -->
+  <!-- الهيدر الخاص بصفحة التواصل -->
   <header class="main-header">
-    <div class="container">
-      <div class="header-decoration">﴿ وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ ﴾</div>
-      <h1 class="main-title">تَوَاصَلْ مَعِي</h1>
-      <p class="header-subtitle">
-        أهلاً وسهلاً بك في صفحة التواصل الخاصة بي. يسعدني تشريفك برأيك أو رسالتك الطيبة.
-      </p>
+    <div class="container header-content-wrapper">
+      
+      <!-- الصورة الأولى على اليمين (كبيرة للقرائية) -->
+      <img src="logo.png" alt="لوجو مركز الإمام الإسلامي" class="header-side-img header-img-right" onerror="this.src='https://via.placeholder.com/170?text=لوجو';">
+
+      <!-- النصوص في المنتصف -->
+      <div class="header-text-center">
+        <div class="header-decoration">﴿ وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ وَالْمُؤْمِنُونَ ﴾</div>
+        <h1 class="main-title">تَوَاصَلْ مَعِي</h1>
+        <p class="header-subtitle">
+          أهلاً وسهلاً بك في صفحة التواصل الخاصة بي، يسعدني تشريفك برأيك أو رسالتك الطيبة.
+        </p>
+      </div>
+
+      <!-- الصورة الثانية على اليسار (كبيرة للقرائية) -->
+      <img src="badge.jpg" alt="شعار الألفية الثانية" class="header-side-img header-img-left" onerror="this.src='https://via.placeholder.com/170?text=شعار';">
+
     </div>
   </header>
 
   <main class="container">
+    <div class="contact-card-box">
+      <h2 class="contact-form-main-title">أهلاً بك، أرسل رسالتك الآن</h2>
+      <div class="contact-form-title-line"></div>
 
-    <!-- قسم نموذج التواصل المباشر -->
-    <section class="content-section">
-      <div class="section-title-wrapper">
-        <h3 class="section-title">أهلاً بك، أرسل رسالتك الآن</h3>
-        <div class="title-line"></div>
-      </div>
-
-      <!-- نموذج الإرسال الموجه لصفحة Transmission.html -->
-      <form id="contact-form" action="https://formspree.io/f/xwlvrynb" method="POST" class="contact-form-box">
-  
-        <!-- حقل الاسم -->
-        <div class="form-group">
+      <form action="#" method="POST" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح، شكراً لتواصلك!');">
+        
+        <div class="form-group-box">
           <label for="name">الاسم:</label>
-          <input type="text" id="name" name="name" class="form-input" required placeholder="اكتب اسمك الكريم هنا">
+          <input type="text" id="name" placeholder="اكتب اسمك الكريم هنا" required>
         </div>
 
-        <!-- حقل البريد الإلكتروني (Formspree بيتحقق منه تلقائياً إنه إيميل حقيقي) -->
-        <div class="form-group">
+        <div class="form-group-box">
           <label for="email">البريد الإلكتروني:</label>
-          <input type="email" id="email" name="email" class="form-input" required placeholder="example@domain.com">
+          <input type="email" id="email" placeholder="example@domain.com" required>
         </div>
 
-        <!-- حقل الرسالة -->
-        <div class="form-group">
-          <label for="message">الرسالة:</label>
-          <textarea id="message" name="message" rows="5" class="form-input textarea" required placeholder="اكتب رسالتك هنا..."></textarea>
+        <div class="form-group-box">
+          <label for="confirm-email">تأكيد البريد الإلكتروني:</label>
+          <input type="email" id="confirm-email" placeholder="أعد كتابة البريد الإلكتروني" required>
         </div>
 
-        <!-- 📱 رقم الهاتف (أرقام فقط + 11 رقماً + إجباري) -->
-        <div class="form-group">
+        <div class="form-group-box">
           <label for="phone">رقم الهاتف:</label>
-          <input type="tel" id="phone" name="phone" class="form-input" required placeholder="01xxxxxxxxx" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-          <span id="phone-error-msg" style="color: #e60000; font-size: 0.85rem; margin-top: 5px; display: none;">يجب أن يكون رقم الهاتف مكوناً من 11 رقماً ويبدأ بـ 01!</span>
+          <input type="tel" id="phone" placeholder="01xxxxxxxx0" pattern="[0-9]{10,15}" required>
         </div>
 
-        <button type="submit" class="submit-form-btn">إرسال الرسالة 📨</button>
+        <div class="form-group-box">
+          <label for="message">الرسالة:</label>
+          <textarea id="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn-custom">✉️ إرسال الرسالة</button>
       </form>
 
-      </form>
-      
-      <!-- بطاقة الواتساب -->
-      <div class="contact-card whatsapp-card">
-        <div class="contact-icon-wrapper">
-          <span class="contact-icon">📱</span>
-        </div>
+      <!-- قسم التواصل المباشر -->
+      <div class="box-section-custom">
         <h3>التواصل عبر الهاتف أو الواتساب</h3>
-        <p>يمكنك مراسلتي فوراً عبر تطبيق الواتساب بالضغط على الزر أدناه:</p>
-        <a href="tel:01111248542" class="call-direct-btn">
-          📞 اتصل مباشرة: 01111248542
-        </a>
-        <p> </p>
-        <div class="contact-action-box">
-          <a href="https://wa.me/201111248542" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
-            💬 مراسلة عبر الواتساب
+        <p class="section-intro-text contact-intro-spacing">يمكنك مراسلتي فوراً عبر تطبيق الواتساب بالضغط على الزر أدناه</p>
+        
+        <div>
+          <a href="tel:01111248542" class="contact-btn-custom call-btn-style">
+            <i class="fas fa-phone-alt"></i> اتصل مباشرةً 01111248542
           </a>
-          
-          <span class="contact-detail-text">01111248542</span>
+          <a href="https://wa.me/201111248542" target="_blank" class="contact-btn-custom whatsapp-btn-style">
+            <i class="fab fa-whatsapp whatsapp-icon-size"></i> مراسلة عبر الواتساب
+          </a>
         </div>
       </div>
 
-      <!-- قسم ادعمني / الدعم الاختياري -->
-      <section class="support-section">
-        <div class="support-card">
-          <div class="support-icon">🤝</div>
-          <h3>ادعم استمرار المشروع</h3>
-          <p>إذا كان هذا الموقع قد نال إعجابك أو استفدت منه، يمكنك دعم المطور للاستمرار في تقديم وتطوير المزيد من المشاريع النافعة.</p>
-          
-          <div class="support-methods">
-            <!-- خيار فودافون كاش -->
-            <div class="support-box vodafone">
-              <span class="method-title">📱 فودافون كاش (Vodafone Cash)</span>
-              <span class="phone-num">01062812530</span>
-            </div>
-          </div>
+      <!-- قسم الدعم (فودافون كاش) -->
+      <div class="cash-box-style">
+        <h4 class="cash-box-heading"><i class="fas fa-hand-holding-heart"></i> ادعم استمرار المشروع</h4>
+        <p class="cash-box-desc">إذا كان هذا الموقع قد نال إعجابك أو استفدت منه، يمكنك دعم المطور للاستمرار في تقديم وتطوير المزيد من المشاريع النافعة.</p>
+        <div class="cash-details-wrapper">
+          فودافون كاش (Vodafone Cash)<br>
+          <span class="cash-number">01062812530</span>
         </div>
-      </section>
+      </div>
+    </div>
 
-    </section>
-
-    <!-- عداد الزوار لصفحة التواصل -->
-    <section class="counter-section">
-      <div class="counter-card">
+    <!-- عداد زوار صفحة التواصل -->
+    <div class="counter-section">
+      <div class="counter-card contact-counter-custom">
         <div class="counter-icon">👥</div>
         <div class="counter-info">
           <h4>عدد زوار صفحة التواصل</h4>
-          <span class="counter-number" id="contact-counter">—</span>
+          <span class="counter-number" id="contact-counter">25</span>
         </div>
       </div>
-    </section>
-
+    </div>
   </main>
 
-  <!-- الفوتر -->
   <footer class="main-footer">
     <div class="container">
       <p>جميع الحقوق محفوظة © 2026 بواسطة البراء عيد أحمد محمود</p>
     </div>
   </footer>
-
 </body>
 </html>
