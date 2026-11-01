@@ -1,10 +1,3 @@
-/*
-  ==========================================================================
-   مستودع البيانات والتفاعل الخاص بالموقع (السرد القرآني - البراء عيد أحمد محمود)
-  ==========================================================================
- */
-
-// 1️⃣ مصفوفة بيانات جميع الأشخاص بالترتيب المطلوب
 const PEOPLE_DATA = [
   // --- 1. الأصدقاء والزملاء ---
   {
@@ -63,7 +56,7 @@ const PEOPLE_DATA = [
     category: "founder",
     name: "الدكتور/ عاصم أحمد عبد الكريم",
     image: "asim-abd-elkareem.jpg",
-    text: "يقف قلمي عاجزاً وأنا أكتب كلمات الشكر والتقدير لرجلٍ أقام بفضل الله وتوفيقه هذا الصرح القرآني المبارك؛ الدكتور الفاضل عاصم أحمد عبد الكريم.\n\nإن ما نشهده اليوم من نجاحٍ وفرحة بإتمام السرد القرآني لم يكن ليتحقق إلا برؤيةٍ مباركة، وهمةٍ عالية، وجدٍّ ودؤوب من سيادته على خدمة كتاب الله تعالى ورعاية أهله وخاصته..."
+    text: "يقف قلمي عاجزاً وأنا أكتب كلمات الشكر والتقدير لرجلٍ أقام بفضل الله وتوفيقه هذا الصرح القرآني المبارك؛ الدكتور الفاضل عاصم أحمد عبد الكريم.\n\nإن ما نشهده اليوم من نجاحٍ وفرحة بإتمام السرد القرآني لم يكن ليتحقق إلا برؤيةٍ مباركة، وهمةٍ عالية، وحرصٍ دؤوب من سيادته على خدمة كتاب الله تعالى ورعاية أهله وخاصته. لقد بذل الدكتور عاصم الغالي والنفيث، ووفر لنا في مركز الإمام الإسلامي كل سبل التيسير والتشجيع والبيئة القرآنية الصافية، ليكون هذا المركز منارة هدى ونوراً يستشهد به كل طالب لآيات الله.\n\nنسأل الله العظيم، رب العرش العظيم، أن يجعل كل حرف تلوناها، وكل آية حفظناها، وكل إنجاز تحقق في هذا المركز في ميزان حسناته صدقة جارية لا ينقطع أجرها إلى يوم القيامة، وأن يبارك في عمره وعمله وصحته، ويجزه عنا وعن أهل القرآن خير ما جازى به عباده الصالحين."
   },
 
   // --- 3. القطاع الإشرافي العام ---
@@ -84,7 +77,7 @@ const PEOPLE_DATA = [
 
   // --- 4. مدير الفرع ---
   {
-    id: "manager-adel",
+    id: "sheikh-adel",
     category: "manager",
     name: "الشيخ/ عادل عبدالرحمن",
     image: "sheikh.jpg",
@@ -104,9 +97,9 @@ const PEOPLE_DATA = [
   {
     id: "sheikh-hassan",
     category: "sheikhs",
-    name: "الشيخ/ حسن",
+    name: "الشيخ/ حسن الكارف",
     image: "sheikh-hassan.jpg",
-    text: "شكراً جزيلاً لشيخنا الفاضل الشيخ حسن على متابعته وحرص الدائم على توجيهنا ودعمنا طوال مسيرتنا في الكتاب، جزاك الله خيراً وبارك في جهودك."
+    text: "شكراً جزيلاً لشيخنا الفاضل الشيخ حسن على متابعته وحرصه الدائم على توجيهنا ودعمنا طوال مسيرتنا في الكتاب، جزاك الله خيراً وبارك في جهودك."
   },
   {
     id: "sheikh-suhaib",
@@ -125,9 +118,9 @@ const PEOPLE_DATA = [
   {
     id: "sheikh-hazem",
     category: "sheikhs",
-    name: "الشيخ/ حازم",
+    name: "الشيخ/ حازم مسعد",
     image: "sheikh-hazem.jpg",
-    text: "كل الشكر والتقدير لشيخنا الفاضل الشيخ حازم على جهوده الطيبة ودعمه الدائم لنا في مركز الإمام الإسلامي، جزاك الله خيراً وبارك في جهدك ووقتك."
+    text: "كل الشكر والتقدير لشيخنا الفاضل الشيخ حازم مسعد على جهوده الطيبة ودعمه الدائم لنا في مركز الإمام الإسلامي، جزاك الله خيراً وبارك في جهدك ووقتك."
   },
 
   // --- 7. المحاسب والإدارة ---
@@ -140,7 +133,6 @@ const PEOPLE_DATA = [
   }
 ];
 
-// دالة توليد الكروت وتعبئتها داخل الأقسام بشكل صحيح
 function renderCards() {
   const grids = {
     "friends": document.getElementById("friends-grid"),
@@ -164,26 +156,31 @@ function renderCards() {
     card.className = "person-card";
     
     const hasImage = person.image && person.image.trim() !== "";
-    
+    const words = person.text.trim().split(/\s+/);
+    const shortText = words.length > 6 ? words.slice(0, 6).join(" ") + "..." : person.text;
+
     const previewContentHtml = hasImage ? `
       <div class="card-preview-content">
         <img src="${person.image}" alt="${person.name}" class="card-thumb" onerror="this.src='https://via.placeholder.com/150?text=صورة';">
-        <div class="card-snippet">${person.text}</div>
+        <div class="card-snippet">${shortText}</div>
       </div>
     ` : `
       <div class="card-preview-content no-image">
-        <div class="card-snippet" style="-webkit-line-clamp: 3; max-width: 100%;">${person.text}</div>
+        <div class="card-snippet" style="max-width: 100%;">${shortText}</div>
       </div>
     `;
 
+    const isBaraa = person.name.includes("البراء");
+    const imgMaxWidth = isBaraa ? "175px" : "140px";
+
     const fullImageHtml = hasImage ? `
-      <div class="modal-img-box" style="width: 140px; height: 140px; margin: 0 auto 15px auto; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent-gold);">
-        <img src="${person.image}" alt="${person.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://via.placeholder.com/150?text=صورة';">
+      <div class="modal-img-box" style="width: auto; max-width: ${imgMaxWidth}; height: auto; margin: 4px auto 6px auto; border-radius: 10px; overflow: hidden; border: 2px solid var(--accent-gold); box-shadow: 0 3px 8px rgba(0,0,0,0.08); background: #fff; display: flex; align-items: center; justify-content: center;">
+        <img src="${person.image}" alt="${person.name}" style="width: 100%; height: auto; object-fit: contain; display: block;" onerror="this.src='https://via.placeholder.com/150?text=صورة';">
       </div>
     ` : '';
 
     card.innerHTML = `
-      <h4 class="person-name">${person.name}</h4>
+      <h4 class="person-name" style="font-size: 1.6rem;">${person.name}</h4>
       ${previewContentHtml}
       <div class="card-full-text">
         ${fullImageHtml}
@@ -196,7 +193,6 @@ function renderCards() {
   });
 }
 
-// دالة التوسيع والتصغير عند الضغط
 function toggleCard(button) {
   const card = button.closest(".person-card");
   card.classList.toggle("expanded");
@@ -216,20 +212,27 @@ function setupWriterToggle() {
   });
 }
 
-function handleSmartCounter(counterKey, elementId) {
-  const counterElement = document.getElementById(elementId);
-  if (!counterElement) return;
-
-  const sessionKey = `visited_session_${counterKey}`;
-  let visits = parseInt(localStorage.getItem(counterKey)) || 1;
+function handleSmartCounter(storageKey, elementId) {
+  const sessionKey = `visited_session_${storageKey}`;
+  let visits = parseInt(localStorage.getItem(storageKey));
+  if (isNaN(visits)) {
+    visits = 25;
+    localStorage.setItem(storageKey, visits);
+  }
 
   if (!sessionStorage.getItem(sessionKey)) {
     visits += 1;
-    localStorage.setItem(counterKey, visits);
+    localStorage.setItem(storageKey, visits);
     sessionStorage.setItem(sessionKey, "true");
   }
 
-  counterElement.textContent = visits.toLocaleString("ar-EG");
+  const counterElement = document.getElementById(elementId);
+  if (counterElement) {
+    // استخدام الاتجاه المخصص لضمان عدم انعكاس الرقم
+    counterElement.style.direction = "ltr";
+    counterElement.style.unicodeBidi = "bidi-override";
+    counterElement.textContent = visits.toLocaleString("ar-EG"); // أو "ar-EG" حسب الرغبة، بس "en-US" بيعرض الأرقام بصورة مظبوطة 100% بدون قلب
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -237,10 +240,10 @@ document.addEventListener("DOMContentLoaded", () => {
   setupWriterToggle();
 
   if (document.getElementById("home-counter")) {
-    handleSmartCounter("Imam-Islamic-Center-in-Al-Saff-Al-Balad", "home-counter");
+    handleSmartCounter("quran_home_visits_2026", "home-counter");
   }
 
   if (document.getElementById("contact-counter")) {
-    handleSmartCounter("Imam-Islamic-Center-in-Al-Saff-Al-Balad", "contact-counter");
+    handleSmartCounter("quran_contact_visits_2026", "contact-counter");
   }
 });
